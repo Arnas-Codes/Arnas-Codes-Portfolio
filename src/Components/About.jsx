@@ -22,14 +22,15 @@ const AboutMe = [
 
 const About = () => {
   return (
-    <div className="w-full lg:w-1/2 flex items-stretch justify-center md:justify-start px-0 pb-0">
-      <div className="w-full h-full bg-[var(--bg-secondary)] border border-[var(--border)] rounded-2xl p-8 md:p-10 shadow-sm">
+    <section
+      id="about"
+      className="w-full lg:w-1/2 flex items-stretch justify-center md:justify-start px-0 md:pt-28 pb-0"
+    >
+      <div className="w-full h-full bg-(--bg-secondary) border border-(--border) rounded-2xl p-8 md:p-10 shadow-sm">
         {/* Header Section */}
         <div className="mb-8">
-          <h1 className="text-sm text-[var(--text-secondary)] mt-1">
-            About Me
-          </h1>
-          <p className="text-2xl font-bold tracking-tight text-[var(--text)]">
+          <h1 className="text-sm text-(--text-secondary) mt-1">About Me</h1>
+          <p className="text-2xl font-bold tracking-tight text-(--text)">
             Get to Know Me
           </p>
           <div className="h-0.5 w-8 bg-indigo-500 mt-3 rounded-full" />
@@ -40,7 +41,7 @@ const About = () => {
           {AboutMe.map((item) => (
             <div className="flex items-start gap-4 group" key={item.id}>
               {/* Icon Wrapper */}
-              <div className="shrink-0 w-10 h-10 rounded-xl bg-[var(--primary)]/10 flex items-center justify-center p-2.5 transition-colors group-hover:bg-[var(--primary)]/20">
+              <div className="shrink-0 w-10 h-10 rounded-xl bg-(--primary)/10 flex items-center justify-center p-2.5 transition-colors group-hover:bg-(--primary)/20">
                 <img
                   className="w-full h-full object-contain"
                   src={item.image}
@@ -48,14 +49,14 @@ const About = () => {
                 />
               </div>
               {/* Text */}
-              <p className="text-[var(--text-secondary)] text-sm md:text-base leading-relaxed pt-1.5">
+              <p className="text-(--text-secondary) text-sm md:text-base leading-relaxed pt-1.5">
                 {item.text}
               </p>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

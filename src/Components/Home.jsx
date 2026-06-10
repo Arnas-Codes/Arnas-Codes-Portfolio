@@ -13,7 +13,7 @@ const Home = () => {
         </span>
 
         <h1 className="text-(--text) mt-3 text-5xl font-black leading-tight md:text-7xl">
-          Hi, I'm{" "}
+          Hi, I'm
           <span className="from-(--primary) to-(--purple) block bg-linear-to-r bg-clip-text text-transparent">
             Arnas
           </span>
@@ -31,13 +31,15 @@ const Home = () => {
 
         {/* Buttons */}
         <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
-          <button className="bg-(--primary) rounded-xl px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105">
-            View Projects
-          </button>
+          <a href="#projects">
+            <button className="btn-primary">View Projects</button>
+          </a>
 
-          <button className="bg-(--glass) border-(--border) text-(--text) hover:border-(--primary) hover:text-(--primary) rounded-xl border px-6 py-3 font-medium backdrop-blur-md transition-all duration-300">
-            Contact Me
-          </button>
+          <a href="#contact">
+            <button className="bg-(--glass) border-(--border) text-(--text) hover:border-(--primary) hover:text-(--primary) rounded-xl border px-6 py-3 font-medium backdrop-blur-md transition-all duration-300">
+              Contact Me
+            </button>
+          </a>
         </div>
       </div>
 

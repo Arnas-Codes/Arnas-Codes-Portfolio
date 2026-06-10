@@ -6,8 +6,8 @@ import Dark from "../assets/DarkMode/Dark.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
+  { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];
@@ -32,15 +32,21 @@ const socialLinks = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") return "light";
+
+    const savedTheme = window.localStorage.getItem("theme");
+    if (savedTheme) return savedTheme;
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
+    root.classList.toggle("dark", theme === "dark");
+    window.localStorage.setItem("theme", theme);
   }, [theme]);
 
   return (
@@ -49,7 +55,7 @@ const Header = () => {
       <header className="fixed top-4 left-1/2 z-50 w-[95%] max-w-7xl -translate-x-1/2">
         <nav className="navbar flex h-16 items-center justify-between px-6">
           {/* Logo */}
-          <h1 className="text-2xl font-bold text-white">Arnas</h1>
+          <h1 className="text-2xl font-bold text-(--text)">Arnas</h1>
 
           {/* Desktop Navigation */}
           <div className="hidden gap-8 md:flex items-center">
@@ -90,7 +96,7 @@ const Header = () => {
                   onClick={() => setTheme("dark")}
                   className="cursor-pointer p-2"
                 >
-                  <img className="h-10 w-10" src={Dark} alt="Theme" />
+                  <img className="h-10 w-10 " src={Dark} alt="Theme" />
                 </button>
               )}
             </div>
@@ -101,7 +107,7 @@ const Header = () => {
             <img
               src={isOpen ? Close : Menu}
               alt="menu"
-              className="h-8 w-8 brightness-0 invert"
+              className={`h-8 w-8 ${theme === "dark" && " brightness-0 invert"}`}
             />
           </button>
         </nav>
@@ -124,8 +130,7 @@ const Header = () => {
               {link.name}
             </a>
           ))}
-
-          <div className="mt-6 flex gap-5">
+          <div className="mt-6 flex  gap-5">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
@@ -136,6 +141,24 @@ const Header = () => {
                 <img src={social.img} alt={social.name} className="h-6 w-6" />
               </a>
             ))}
+          </div>
+          <h2 className="text-xl">Change Theme</h2>
+          <div className="">
+            {theme === "dark" ? (
+              <button
+                onClick={() => setTheme("light")}
+                className="cursor-pointer p-2"
+              >
+                <img className="h-10 w-10" src={Light} alt="Theme" />
+              </button>
+            ) : (
+              <button
+                onClick={() => setTheme("dark")}
+                className="cursor-pointer p-2"
+              >
+                <img className="h-10 w-10" src={Dark} alt="Theme" />
+              </button>
+            )}
           </div>
         </div>
       </div>

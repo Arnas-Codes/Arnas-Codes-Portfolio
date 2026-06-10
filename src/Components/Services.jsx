@@ -52,7 +52,7 @@ const offerings = [
 
 const Services = () => {
   return (
-    <section className="w-full px-4 pb-16 sm:px-6 lg:px-8 xl:px-0">
+    <section id="skills" className="w-full px-4 pb-16 sm:px-6 lg:px-8 md:pt-28 xl:px-0">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-12 text-center">

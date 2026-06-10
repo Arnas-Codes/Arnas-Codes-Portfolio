@@ -99,15 +99,14 @@ const Projects = () => {
         </button>
       </div>
 
-      {/* Projects Grid */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         {projectData.map((project) => (
           <article
             key={project.id}
-            className="project-card group bg-(--bg-secondary)/80 border-(--border) hover:border-(--primary) overflow-hidden rounded-xl border transition-all duration-300 hover:-translate-y-2"
+            className="project-card group flex flex-col overflow-hidden rounded-xl border border-(--border) bg-(--bg-secondary)/80 transition-all duration-300 hover:-translate-y-2 hover:border-(--primary)"
           >
             {/* Project Image */}
-            <div className="border-(--border) aspect-video overflow-hidden border-b">
+            <div className="aspect-video overflow-hidden border-b border-(--border)">
               <img
                 src={project.img}
                 alt={project.projectName}
@@ -116,12 +115,13 @@ const Projects = () => {
             </div>
 
             {/* Content */}
-            <div className="flex h-full flex-col gap-5 p-6">
+            <div className="flex flex-1 flex-col gap-5 p-6">
               <div>
                 <h3 className="text-xl font-bold text-(--text)">
                   {project.projectName}
                 </h3>
-                <p className="text-(--text-secondary) mt-3 text-sm leading-relaxed">
+
+                <p className="mt-3 text-sm leading-relaxed text-(--text-secondary)">
                   {project.projectDes}
                 </p>
               </div>
@@ -131,7 +131,7 @@ const Projects = () => {
                 {project.usedTool.map((tool) => (
                   <span
                     key={tool}
-                    className="border-(--border) bg-(--bg-secondary) text-(--text-secondary) rounded-full border px-3 py-1 text-xs"
+                    className="rounded-full border border-(--border) bg-(--bg-secondary) px-3 py-1 text-xs text-(--text-secondary)"
                   >
                     {tool}
                   </span>
@@ -139,25 +139,25 @@ const Projects = () => {
               </div>
 
               {/* Buttons */}
-              <div className="mt-auto flex gap-3">
-                <a
-                  href={project.projectsRepo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-(--glass) border-(--border) text-(--text) hover:border-(--primary) flex-1 text-center py-2.5 rounded-xl border transition-all duration-300"
-                >
-                  Code
-                </a>
+<div className="mt-auto flex gap-3 pt-2">
+  <a
+    href={project.projectsRepo}
+    target="_blank"
+    rel="noreferrer"
+    className="flex flex-1 items-center justify-center rounded-xl border border-(--border) bg-white/5 px-4 py-2.5 text-sm font-medium text-(--text) backdrop-blur-md transition-all duration-300 hover:border-(--primary)/40 hover:bg-white/10"
+  >
+    Code
+  </a>
 
-                <a
-                  href={project.liveSite}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-(--primary) flex-1 text-center py-2.5 rounded-xl text-white transition-all duration-300 hover:opacity-90"
-                >
-                  Live Demo
-                </a>
-              </div>
+  <a
+    href={project.liveSite}
+    target="_blank"
+    rel="noreferrer"
+    className="flex flex-1 items-center justify-center rounded-xl border border-(--primary)/20 bg-(--primary)/10 px-4 py-2.5 text-sm font-medium text-(--primary) backdrop-blur-md transition-all duration-300 hover:border-(--primary)/40 hover:bg-(--primary)/15"
+  >
+    Live Demo
+  </a>
+</div>
             </div>
           </article>
         ))}
