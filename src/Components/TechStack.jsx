@@ -1,75 +1,98 @@
-import JsIcon from "../assets/TechStackImgs/js.png";
+import JsIcon from "../assets/TechStackImgs/Js.png";
 import htmlIcon from "../assets/TechStackImgs/html.ico";
 import CssIcon from "../assets/TechStackImgs/css.png";
 import ReactIcon from "../assets/TechStackImgs/react.png";
-import NextJsIcon from "../assets/TechStackImgs/Nextjs.avif";
+import NextJsIcon from "../assets/TechStackImgs/node.png";
 import TailwindIcon from "../assets/TechStackImgs/tailwind.png";
 import GitIcon from "../assets/TechStackImgs/git.png";
 import GitHubIcon from "../assets/TechStackImgs/github.png";
 import VsCodeIcon from "../assets/TechStackImgs/vscode.png";
+import NodeIcon from "../assets/TechStackImgs/vite.png";
+
+import { motion } from "framer-motion";
+import { fadeRight } from "../Animations/variant.js";
 
 const techs = [
   {
     name: "Languages",
-    techIcons: JsIcon,
+    techIcons: [{ src: JsIcon, name: "js" }],
   },
   {
     name: "Frontend",
-    techIcons: [htmlIcon, CssIcon, ReactIcon, NextJsIcon, TailwindIcon],
+    techIcons: [
+      { src: htmlIcon, name: "html" },
+      { src: CssIcon, name: "css" },
+      { src: ReactIcon, name: "react" },
+      { src: NextJsIcon, name: "next" },
+      { src: TailwindIcon, name: "tailwind" },
+    ],
   },
   {
     name: "Tools",
-    techIcons: [GitIcon, GitHubIcon, VsCodeIcon],
+    techIcons: [
+      { src: GitIcon, name: "git" },
+      { src: GitHubIcon, name: "github" },
+      { src: VsCodeIcon, name: "vscode" },
+      { src: NodeIcon, name: "node" },
+    ],
   },
 ];
 
 const TechStack = () => {
   return (
-    <div className="w-full lg:w-1/2 flex items-stretch justify-center md:justify-start md:pt-28 px-0 py-0">
+    <motion.div
+      variants={fadeRight}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="w-full lg:w-1/2 flex items-stretch justify-center md:justify-start md:pt-28 px-0 py-0"
+    >
       <div className="w-full h-full bg-(--bg-secondary) border border-(--border) rounded-2xl p-8 md:p-10 shadow-sm">
         <div className="mb-8">
           <h1 className="text-sm font-medium uppercase tracking-wider text-(--text-secondary)">
             Tech stack
           </h1>
+
           <p className="text-2xl font-bold tracking-tight text-(--text) mt-1">
             Technologies I Use
           </p>
+
           <div className="h-0.5 w-8 bg-indigo-500 mt-3 rounded-full" />
         </div>
 
         <div className="space-y-6">
-          {techs.map((tech, i) => {
-            const iconsArray = [tech.techIcons].flat();
+          {techs.map((tech) => (
+            <div
+              key={tech.name}
+              className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-(--border) pb-5 last:border-0 last:pb-0 gap-4"
+            >
+              <p className="text-sm font-semibold text-(--text-secondary) sm:w-1/4">
+                {tech.name}
+              </p>
 
-            return (
-              <div
-                key={i}
-                className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-(--border) pb-5 last:border-0 last:pb-0 gap-4"
-              >
-                <p className="text-sm font-semibold text-(--text-secondary) sm:w-1/4">
-                  {tech.name}
-                </p>
-
-                <div className="flex flex-wrap gap-3 sm:w-3/4">
-                  {iconsArray.map((icon, index) => (
+              <div className="flex flex-wrap gap-3 sm:w-3/4">
+                {tech.techIcons.map((icon, index) => {
+                  return (
                     <div
-                      key={index}
-                      className="w-12 h-12 rounded-xl border border-(--glass-border) bg-(--glass) backdrop-blur-2xl flex items-center justify-center p-2.5 shadow-sm hover:scale-105 transition-transform duration-200"
+                      key={`${tech.name}-${index}`}
+                      className="group flex h-12 w-12 items-center justify-center rounded-xl border border-(--border) bg-(--bg-secondary)/90 p-2.5 shadow-sm backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                     >
                       <img
-                        src={icon}
-                        alt={`${tech.name} icon`}
-                        className="w-full h-full object-contain"
+                        src={icon.src}
+                        alt={icon.name}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
                       />
                     </div>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
