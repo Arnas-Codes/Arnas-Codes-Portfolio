@@ -45,7 +45,7 @@ const About = () => {
           <div className="h-0.5 w-8 bg-indigo-500 mt-3 rounded-full" />
         </div>
 
-        {/* Content */}
+        {/* Contents */}
         <div className="space-y-6">
           {AboutMe?.map((item) => (
             <div key={item.id} className="flex items-start gap-4 group">
