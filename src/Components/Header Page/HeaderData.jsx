@@ -1,9 +1,5 @@
-import Menu from "../../assets/icons/menu.png";
-import Close from "../../assets/icons/close.png";
-import Light from "../../assets/DarkMode/Light.png";
-import Dark from "../../assets/DarkMode/Dark.png";
 
-const navLinks = [
+export const navLinks = [
   { name: "Home", href: "#home" },
   { name: "Projects", href: "#projects" },
   { name: "About", href: "#about" },
@@ -11,7 +7,7 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-const socialLinks = [
+export const socialLinks = [
   {
     name: "GitHub",
     img: "https://github.com/favicon.ico",

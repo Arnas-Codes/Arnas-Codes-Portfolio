@@ -9,7 +9,7 @@ import GitHubIcon from "../../assets/TechStackImgs/github.png";
 import VsCodeIcon from "../../assets/TechStackImgs/vscode.png";
 import NodeIcon from "../../assets/TechStackImgs/vite.png";
 
-const techs = [
+export const techs = [
   {
     name: "Languages",
     techIcons: [{ src: JsIcon, name: "js" }],

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeRight } from "../../Animations/variant.js";
+import { techs } from "./TechStackData.jsx";
 
 const TechStack = () => {
   return (

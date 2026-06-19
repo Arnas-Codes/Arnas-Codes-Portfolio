@@ -1,5 +1,11 @@
-import { useState, useEffect } from "react";
+import Menu from "../../assets/icons/menu.png";
+import Close from "../../assets/icons/close.png";
+import Light from "../../assets/DarkMode/Light.png";
+import Dark from "../../assets/DarkMode/Dark.png";
 
+
+import { useState, useEffect } from "react";
+import { navLinks, socialLinks } from "./HeaderData";
 
 import { motion } from "framer-motion";
 

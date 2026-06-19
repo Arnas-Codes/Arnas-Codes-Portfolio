@@ -5,7 +5,7 @@ import About from "./Components/About Page/About";
 import TechStack from "./Components/Tech Page/TechStack";
 import Projects from "./Components/Projects Page/Projects";
 import Services from "./Components/Service Page/Services";
-import Contact from "./Components/Contact";
+import Contact from "./Components/Contact Page/Contact";
 const App = () => {
   return (
     <div className="relative isolate min-h-screen overflow-x-hidden bg-(--bg) text-(--text) transition-colors duration-500 pb-10">

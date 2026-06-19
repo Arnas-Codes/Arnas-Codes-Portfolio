@@ -5,7 +5,7 @@ import componentIcon from "../../assets/ServicesIcons/componentIcon.png";
 import performanceIcon from "../../assets/ServicesIcons/permomanceIcon.png";
 import stateIcon from "../../assets/ServicesIcons/stateIcon.png";
 
-const offerings = [
+export const offerings = [
   {
     id: 1,
     img: reactIcon,

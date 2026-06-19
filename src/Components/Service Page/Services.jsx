@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeUp } from "../../Animations/variant.js";
+import { offerings } from "./ServiceData.jsx";
 
 const Services = () => {
   return (
