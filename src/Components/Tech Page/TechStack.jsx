@@ -1,42 +1,5 @@
-import JsIcon from "../assets/TechStackImgs/Js.png";
-import htmlIcon from "../assets/TechStackImgs/html.ico";
-import CssIcon from "../assets/TechStackImgs/css.png";
-import ReactIcon from "../assets/TechStackImgs/react.png";
-import NextJsIcon from "../assets/TechStackImgs/node.png";
-import TailwindIcon from "../assets/TechStackImgs/tailwind.png";
-import GitIcon from "../assets/TechStackImgs/git.png";
-import GitHubIcon from "../assets/TechStackImgs/github.png";
-import VsCodeIcon from "../assets/TechStackImgs/vscode.png";
-import NodeIcon from "../assets/TechStackImgs/vite.png";
-
 import { motion } from "framer-motion";
-import { fadeRight } from "../Animations/variant.js";
-
-const techs = [
-  {
-    name: "Languages",
-    techIcons: [{ src: JsIcon, name: "js" }],
-  },
-  {
-    name: "Frontend",
-    techIcons: [
-      { src: htmlIcon, name: "html" },
-      { src: CssIcon, name: "css" },
-      { src: ReactIcon, name: "react" },
-      { src: NextJsIcon, name: "next" },
-      { src: TailwindIcon, name: "tailwind" },
-    ],
-  },
-  {
-    name: "Tools",
-    techIcons: [
-      { src: GitIcon, name: "git" },
-      { src: GitHubIcon, name: "github" },
-      { src: VsCodeIcon, name: "vscode" },
-      { src: NodeIcon, name: "node" },
-    ],
-  },
-];
+import { fadeRight } from "../../Animations/variant.js";
 
 const TechStack = () => {
   return (
@@ -45,6 +8,7 @@ const TechStack = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
+      id="about"
       className="w-full lg:w-1/2 flex items-stretch justify-center md:justify-start md:pt-28 px-0 py-0"
     >
       <div className="w-full h-full bg-(--bg-secondary) border border-(--border) rounded-2xl p-8 md:p-10 shadow-sm">

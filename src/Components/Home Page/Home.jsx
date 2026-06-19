@@ -1,7 +1,7 @@
 import ProfileImage from "../assets/ProfilePics/profile.png";
 
 import { motion } from "framer-motion";
-import { fadeUp, fadeRight } from "../Animations/variant.js";
+import { fadeUp, fadeRight } from "../../Animations/variant.js";
 
 const Home = () => {
   return (

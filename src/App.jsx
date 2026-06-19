@@ -1,10 +1,10 @@
-import Header from "./Components/Header";
-import BackgroundFX from "./Components/BackgroundFX";
-import Home from "./Components/Home";
-import About from "./Components/About";
-import TechStack from "./Components/TechStack";
-import Projects from "./Components/Projects";
-import Services from "./Components/Services";
+import Header from "./Components/Header Page/Header";
+import BackgroundFX from "./Components/Small Sections/BackgroundFX";
+import Home from "./Components/Home Page/Home";
+import About from "./Components/About Page/About";
+import TechStack from "./Components/Tech Page/TechStack";
+import Projects from "./Components/Projects Page/Projects";
+import Services from "./Components/Service Page/Services";
 import Contact from "./Components/Contact";
 const App = () => {
   return (
