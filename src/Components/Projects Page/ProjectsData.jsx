@@ -5,19 +5,19 @@ import TodoApp from "../../assets/projectImages/Todo-App.png";
 import Spacetourismwebsite from "../../assets/projectImages/Space-tourism-website.png";
 import RESTCountriesAPI from "../../assets/projectImages/REST-Countries-APIREST-Countries-API.png";
 import Multistepform from "../../assets/projectImages/image copy 6.png";
-
+import SAASDashboard from "../../assets/projectImages/SAASDashboard.png";
 
 export const projectData = [
   {
     id: 1,
-    img: LandingPageFM,
-    projectName: "Landing Page FM",
-    projectDes:
-      "A beautiful and responsive landing page challenge built from Frontend Mentor designs.",
-    usedTool: ["React", "Tailwind CSS"],
-    projectsRepo: "https://github.com/Arnas-Codes/Landing-Page-FM.git",
-    liveSite: "https://arnas-codes.github.io/Landing-Page-FM/",
+    img: SAASDashboard,
+    projectName: "SAAS-Dashboard ",
+    projectDes: "Beautiful ",
+    usedTool: ["React", "Tailwind CSS", "Framer Motion"],
+    projectsRepo: "https://github.com/Arnas-Codes/SAAS-Dashboard.git",
+    liveSite: "https://arnas-codes.github.io/SAAS-Dashboard/",
   },
+
   {
     id: 2,
     img: BankPage,
@@ -40,13 +40,13 @@ export const projectData = [
   },
   {
     id: 4,
-    img: TodoApp,
-    projectName: "Todo App",
+    img: LandingPageFM,
+    projectName: "Landing Page FM",
     projectDes:
-      "Feature-rich todo application with dark mode support and smooth animations.",
-    usedTool: ["React", "Tailwind CSS", "Framer Motion"],
-    projectsRepo: "https://github.com/Arnas-Codes/Todo-App.git",
-    liveSite: "https://arnas-codes.github.io/Todo-App/",
+      "A beautiful and responsive landing page challenge built from Frontend Mentor designs.",
+    usedTool: ["React", "Tailwind CSS"],
+    projectsRepo: "https://github.com/Arnas-Codes/Landing-Page-FM.git",
+    liveSite: "https://arnas-codes.github.io/Landing-Page-FM/",
   },
   {
     id: 5,
@@ -77,5 +77,15 @@ export const projectData = [
     usedTool: ["React", "Tailwind CSS"],
     projectsRepo: "https://github.com/Arnas-Codes/Multi-step-form.git",
     liveSite: "https://arnas-codes.github.io/Multi-step-form/",
+  },
+  {
+    id: 8,
+    img: TodoApp,
+    projectName: "Todo App",
+    projectDes:
+      "Feature-rich todo application with dark mode support and smooth animations.",
+    usedTool: ["React", "Tailwind CSS", "Framer Motion"],
+    projectsRepo: "https://github.com/Arnas-Codes/Todo-App.git",
+    liveSite: "https://arnas-codes.github.io/Todo-App/",
   },
 ];

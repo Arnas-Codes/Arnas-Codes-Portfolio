@@ -1,10 +1,11 @@
-
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { fadeUp, stagger } from "../../Animations/variant.js";
-
 import { projectData } from "./ProjectsData.jsx";
 
 const Projects = () => {
+  const homePageProjects = projectData?.slice(0, 6);
+
   return (
     <motion.section
       variants={fadeUp}
@@ -20,19 +21,22 @@ const Projects = () => {
           <span className="text-sm uppercase tracking-widest text-(--text-secondary)">
             Projects
           </span>
-
           <h2 className="mt-2 text-4xl font-bold text-(--text) md:text-5xl">
             Recent Work
           </h2>
-
           <div className="bg-(--primary) mt-4 h-1 w-16 rounded-full" />
         </div>
 
-        <button className="bg-(--glass) border-(--border) text-(--text) hover:border-(--primary) hover:text-(--primary) w-fit rounded-xl border px-5 py-3 backdrop-blur-md transition-all duration-300">
+        {/* Links to the full page subroute */}
+        <Link
+          to="/projects"
+          className="bg-(--glass) border-(--border) text-(--text) hover:border-(--primary) hover:text-(--primary) w-fit rounded-xl border px-5 py-3 backdrop-blur-md transition-all duration-300 block text-center font-medium"
+        >
           View All Projects
-        </button>
+        </Link>
       </div>
 
+      {/* Grid Rendering */}
       <motion.div
         variants={stagger}
         initial="hidden"
@@ -40,7 +44,7 @@ const Projects = () => {
         viewport={{ once: true, amount: 0.05 }}
         className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3"
       >
-        {projectData?.map((project) => (
+        {homePageProjects?.map((project) => (
           <article
             key={project.id}
             className="project-card group flex flex-col overflow-hidden rounded-xl border border-(--border) bg-(--bg-secondary)/80 transition-all duration-300 hover:-translate-y-2 hover:border-(--primary)"
@@ -60,7 +64,6 @@ const Projects = () => {
                 <h3 className="text-xl font-bold text-(--text)">
                   {project.projectName}
                 </h3>
-
                 <p className="mt-3 text-sm leading-relaxed text-(--text-secondary)">
                   {project.projectDes}
                 </p>
@@ -88,7 +91,6 @@ const Projects = () => {
                 >
                   Code
                 </a>
-
                 <a
                   href={project.liveSite}
                   target="_blank"

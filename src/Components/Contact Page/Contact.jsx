@@ -1,7 +1,7 @@
 ﻿import { useState } from "react";
 
 import { motion } from "framer-motion";
-import { fadeUp } from "../Animations/variant.js";
+import { fadeUp } from "../../Animations/variant.js";
 
 
 const Contact = () => {
