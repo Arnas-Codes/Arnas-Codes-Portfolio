@@ -1,21 +1,20 @@
 
-
 import { motion } from "framer-motion";
-import { fadeUp } from "../../Animations/variant.js";
+import { fadeUp, staggerContainer, scaleIn } from "../../Animations/Animation.js";
 import { offerings } from "./ServiceData.jsx";
 
 const Services = () => {
+
   return (
     <motion.section
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15 }}
       id="skills"
       className="w-full px-4 pb-16 sm:px-6 lg:px-8 md:pt-28 xl:px-0"
     >
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
         <div className="mb-12 text-center">
           <p className="text-(--primary) text-sm font-medium uppercase tracking-widest">
             What I Offer
@@ -30,12 +29,18 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {offerings?.map((offer) => (
-            <div
+            <motion.div
               key={offer.id}
-              className="group bg-(--glass) border-(--border) hover:border-(--primary)/40 rounded-2xl border p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              variants={scaleIn}
+              className="group bg-(--glass) border-(--border) hover:border-(--primary)/40 rounded-2xl border p-6 backdrop-blur-md transition-all duration-300"
             >
               <div className="bg-(--primary)/10 mb-5 flex h-12 w-12 items-center justify-center rounded-xl">
                 <img
@@ -52,9 +57,9 @@ const Services = () => {
               <p className="text-(--text-secondary) text-sm leading-relaxed">
                 {offer.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </motion.section>
   );

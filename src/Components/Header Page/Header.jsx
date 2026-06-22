@@ -1,13 +1,12 @@
-import Menu from "../../assets/icons/menu.png";
+import Menu from "../../assets/icons/Menu.png";
 import Close from "../../assets/icons/close.png";
 import Light from "../../assets/DarkMode/Light.png";
 import Dark from "../../assets/DarkMode/Dark.png";
 
-
 import { useState, useEffect } from "react";
-import { navLinks, socialLinks } from "./HeaderData";
-
 import { motion } from "framer-motion";
+import { navLinks, socialLinks } from "./HeaderData";
+import { navAnimation } from "../../Animations/Animation.js";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +51,6 @@ const Header = () => {
     };
   }, [isOpen]);
 
-  // Active section tracking
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll("section[id]"));
 
@@ -92,18 +90,15 @@ const Header = () => {
 
   return (
     <>
-      {/* Header */}
       <motion.header
-        initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        variants={navAnimation}
+        initial="hidden"
+        animate="visible"
         className="fixed left-1/2 top-3 z-50 w-[calc(100%-1rem)] max-w-7xl -translate-x-1/2 sm:top-4 sm:w-[calc(100%-2rem)]"
       >
         <nav className="navbar flex h-14 items-center justify-between px-4 sm:h-16 sm:px-6">
-          {/* Logo */}
           <h1 className="text-xl font-bold text-(--text) sm:text-2xl">Arnas</h1>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               const sectionId = link.href.slice(1);
@@ -125,7 +120,6 @@ const Header = () => {
             })}
           </div>
 
-          {/* Social Links + Theme */}
           <div className="hidden md:flex items-center gap-4">
             {socialLinks.map((social) => (
               <a
@@ -133,7 +127,7 @@ const Header = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`transition-transform duration-300 hover:scale-110`}
+                className="transition-transform duration-300 hover:scale-110"
               >
                 <img
                   src={social.img}
@@ -157,7 +151,6 @@ const Header = () => {
             </button>
           </div>
 
-          {/* Mobile menu button */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
@@ -182,11 +175,10 @@ const Header = () => {
         />
       )}
 
-      {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 right-0 z-40 h-screen w-[min(18rem,85vw)] border-l backdrop-blur-xl transition-transform duration-500 ease-in-out md:hidden overflow-y-auto
-        bg-(--glass) border-(--glass-border)
-        ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 z-40 h-screen w-[min(18rem,85vw)] border-l backdrop-blur-xl transition-transform duration-500 ease-in-out md:hidden overflow-y-auto bg-(--glass) border-(--glass-border) ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex flex-col items-center gap-8 px-6 pb-10 pt-24">
           {navLinks.map((link) => (

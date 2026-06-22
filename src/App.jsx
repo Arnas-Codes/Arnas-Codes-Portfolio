@@ -32,7 +32,7 @@ const MainLandingPage = () => {
 const App = () => {
   return (
     <Router basename="/Arnas-Codes-Portfolio">
-      <div className="relative isolate min-h-screen overflow-x-hidden bg-(--bg) text-(--text) transition-colors duration-500">
+      <div className="relative isolate min-h-screen bg-(--bg) text-(--text) transition-colors duration-500">
         <BackgroundFX />
 
         <main className="relative z-10">

@@ -1,19 +1,20 @@
 import ProfileImage from "../../assets/ProfilePics/profile.png";
 
 import { motion } from "framer-motion";
-import { fadeUp, fadeRight } from "../../Animations/variant.js";
+import { fadeLeft, fadeRight } from "../../Animations/Animation.js";
 
 const Home = () => {
+
   return (
     <section
       id="home"
       className="mx-auto flex min-h-screen max-w-7xl flex-col-reverse items-center justify-center gap-16 px-6 pt-28 md:flex-row"
     >
-      {/* Left Content */}
       <motion.div
-        variants={fadeUp}
+        variants={fadeRight}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
         className="flex-1 text-center md:text-left"
       >
         <span className="text-(--text-secondary) text-sm uppercase tracking-widest">
@@ -38,36 +39,30 @@ const Home = () => {
         </p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.35,
-            duration: 0.45,
-          }}
+          variants={fadeRight}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
           className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start"
         >
-          <motion.a
-            href="#projects"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className="btn-primary"
-          >
+          <a href="#projects" className="btn-primary">
             View Projects
-          </motion.a>
+          </a>
 
-          <a href="#contact">
-            <button className="bg-(--glass) border-(--border) text-(--text) hover:border-(--primary) hover:text-(--primary) rounded-xl border px-6 py-3 font-medium backdrop-blur-md transition-all duration-300">
-              Contact Me
-            </button>
+          <a
+            href="#contact"
+            className="bg-(--glass) border-(--border) text-(--text) hover:border-(--primary) hover:text-(--primary) rounded-xl border px-6 py-3 font-medium backdrop-blur-md transition-all duration-300"
+          >
+            Contact Me
           </a>
         </motion.div>
       </motion.div>
 
-      {/* Profile Image */}
       <motion.div
-        variants={fadeRight}
+        variants={fadeLeft}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
         className="h-72 w-72 overflow-hidden rounded-full ring-4 ring-indigo-600 md:h-96 md:w-96"
       >
         <motion.img

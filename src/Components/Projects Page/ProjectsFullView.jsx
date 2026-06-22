@@ -1,22 +1,21 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { projectData } from "./ProjectsData.jsx";
-import { fadeUp, stagger } from "../../Animations/variant.js";
+import { fadeUp, staggerContainer, scaleIn } from "../../Animations/Animation.js";
 import Button from "../Small Sections/Button.jsx";
 
 const ProjectsFullView = () => {
+
   return (
     <motion.div
-      initial="opacity-0"
-      animate="opacity-100"
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
       className="min-h-screen bg-(--bg) py-20 px-6"
     >
       <div className="mx-auto max-w-7xl">
-        {/* Navigation Breadcrumb */}
-
         <Button />
 
-        {/* Full View Header */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-(--text) md:text-5xl">
             All Projects
@@ -27,18 +26,18 @@ const ProjectsFullView = () => {
           <div className="bg-(--primary) mt-4 h-1 w-24 rounded-full" />
         </div>
 
-        {/* Entire Data Array Grid Rendering */}
         <motion.div
-          variants={stagger}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.02 }}
+          viewport={{ once: true, amount: 0.15 }}
           className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3"
         >
           {projectData?.map((project) => (
-            <article
+            <motion.article
               key={project.id}
-              className="project-card group flex flex-col overflow-hidden rounded-xl border border-(--border) bg-(--bg-secondary)/80 transition-all duration-300 hover:-translate-y-2 hover:border-(--primary)"
+              variants={scaleIn}
+              className="project-card group flex flex-col overflow-hidden rounded-xl border border-(--border) bg-(--bg-secondary)/80 transition-all duration-300"
             >
               <div className="aspect-video overflow-hidden border-b border-(--border)">
                 <img
@@ -88,12 +87,11 @@ const ProjectsFullView = () => {
                   </a>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </motion.div>
       </div>
       <div className="flex justify-center mt-20">
-     
         <Button />
       </div>
     </motion.div>

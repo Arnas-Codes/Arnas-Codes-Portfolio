@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
-import { fadeRight } from "../../Animations/variant.js";
+import { fadeUp, staggerContainer, scaleIn } from "../../Animations/Animation.js";
 import { techs } from "./TechStackData.jsx";
 
 const TechStack = () => {
+
   return (
     <motion.div
-      variants={fadeRight}
+      variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.15 }}
       id="about"
       className="w-full lg:w-1/2 flex items-stretch justify-center md:justify-start md:pt-28 px-0 py-0"
     >
@@ -25,10 +26,17 @@ const TechStack = () => {
           <div className="h-0.5 w-8 bg-indigo-500 mt-3 rounded-full" />
         </div>
 
-        <div className="space-y-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="space-y-6"
+        >
           {techs.map((tech) => (
-            <div
+            <motion.div
               key={tech.name}
+              variants={scaleIn}
               className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-(--border) pb-5 last:border-0 last:pb-0 gap-4"
             >
               <p className="text-sm font-semibold text-(--text-secondary) sm:w-1/4">
@@ -40,7 +48,7 @@ const TechStack = () => {
                   return (
                     <div
                       key={`${tech.name}-${index}`}
-                      className="group flex h-12 w-12 items-center justify-center rounded-xl border border-(--border) bg-(--bg-secondary)/90 p-2.5 shadow-sm backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                      className="group flex h-12 w-12 items-center justify-center rounded-xl border border-(--border) bg-(--bg-secondary)/90 p-2.5 shadow-sm backdrop-blur-md transition-all duration-200"
                     >
                       <img
                         src={icon.src}
@@ -53,9 +61,9 @@ const TechStack = () => {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );

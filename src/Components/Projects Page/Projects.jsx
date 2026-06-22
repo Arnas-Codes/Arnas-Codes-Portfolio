@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { fadeUp, stagger } from "../../Animations/variant.js";
+import { fadeUp, staggerContainer, scaleIn } from "../../Animations/Animation.js";
 import { projectData } from "./ProjectsData.jsx";
 
 const Projects = () => {
@@ -11,11 +11,10 @@ const Projects = () => {
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.08 }}
+      viewport={{ once: true, amount: 0.15 }}
       id="projects"
       className="mx-auto w-full max-w-7xl px-6 pt-20"
     >
-      {/* Section Header */}
       <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
           <span className="text-sm uppercase tracking-widest text-(--text-secondary)">
@@ -27,7 +26,6 @@ const Projects = () => {
           <div className="bg-(--primary) mt-4 h-1 w-16 rounded-full" />
         </div>
 
-        {/* Links to the full page subroute */}
         <Link
           to="/projects"
           className="bg-(--glass) border-(--border) text-(--text) hover:border-(--primary) hover:text-(--primary) w-fit rounded-xl border px-5 py-3 backdrop-blur-md transition-all duration-300 block text-center font-medium"
@@ -36,20 +34,19 @@ const Projects = () => {
         </Link>
       </div>
 
-      {/* Grid Rendering */}
       <motion.div
-        variants={stagger}
+        variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.05 }}
+        viewport={{ once: true, amount: 0.15 }}
         className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3"
       >
         {homePageProjects?.map((project) => (
-          <article
+          <motion.article
             key={project.id}
-            className="project-card group flex flex-col overflow-hidden rounded-xl border border-(--border) bg-(--bg-secondary)/80 transition-all duration-300 hover:-translate-y-2 hover:border-(--primary)"
+            variants={scaleIn}
+            className="project-card group flex flex-col overflow-hidden rounded-xl border border-(--border) bg-(--bg-secondary)/80 transition-all duration-300"
           >
-            {/* Image */}
             <div className="aspect-video overflow-hidden border-b border-(--border)">
               <img
                 src={project.img}
@@ -58,7 +55,6 @@ const Projects = () => {
               />
             </div>
 
-            {/* Content */}
             <div className="flex flex-1 flex-col gap-5 p-6">
               <div>
                 <h3 className="text-xl font-bold text-(--text)">
@@ -69,7 +65,6 @@ const Projects = () => {
                 </p>
               </div>
 
-              {/* Tech stack */}
               <div className="flex flex-wrap gap-2">
                 {project.usedTool?.map((tool) => (
                   <span
@@ -81,7 +76,6 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* Actions */}
               <div className="mt-auto flex gap-3 pt-2">
                 <a
                   href={project.projectsRepo}
@@ -101,7 +95,7 @@ const Projects = () => {
                 </a>
               </div>
             </div>
-          </article>
+          </motion.article>
         ))}
       </motion.div>
     </motion.section>

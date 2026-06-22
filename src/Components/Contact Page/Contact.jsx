@@ -1,8 +1,6 @@
 ﻿import { useState } from "react";
-
 import { motion } from "framer-motion";
-import { fadeUp } from "../../Animations/variant.js";
-
+import { fadeUp, fadeLeft, fadeRight } from "../../Animations/Animation.js";
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
@@ -40,12 +38,11 @@ const Contact = () => {
       variants={fadeUp}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15 }}
       id="contact"
       className="mx-auto w-full max-w-7xl px-6 xl:px-0 pb-6 md:pt-28"
     >
       <div className="rounded-3xl border border-(--border) bg-(--bg-secondary) p-6 md:p-10">
-        {/* Header */}
         <div className="mb-10">
           <span className="text-sm uppercase tracking-widest text-(--text-secondary)">
             Contact
@@ -62,11 +59,13 @@ const Contact = () => {
           <div className="mt-5 h-1 w-16 rounded-full bg-(--primary)" />
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            <motion.input
-              whileFocus={{ scale: 1.02 }}
+              <motion.input
+              variants={fadeLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
               type="text"
               name="name"
               placeholder="Your Name"
@@ -75,7 +74,10 @@ const Contact = () => {
             />
 
             <motion.input
-              whileFocus={{ scale: 1.02 }}
+              variants={fadeRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
               type="email"
               name="email"
               placeholder="Your Email"
@@ -85,7 +87,10 @@ const Contact = () => {
           </div>
 
           <motion.textarea
-            whileFocus={{ scale: 1.02 }}
+            variants={fadeLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
             name="message"
             placeholder="Your Message"
             required
@@ -94,7 +99,11 @@ const Contact = () => {
           />
 
           <div className="flex justify-end">
-            <button type="submit" className="btn-primary" disabled={loading}>
+            <button
+              type="submit"
+              className="btn-primary"
+              disabled={loading}
+            >
               {loading ? "Sending..." : "Send Message"}
             </button>
           </div>
